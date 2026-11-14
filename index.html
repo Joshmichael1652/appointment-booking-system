@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple appointment booking system for small businesses.">
+  <title>Appointment Booking System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand-mark">AB</div>
+    <div>
+      <p class="eyebrow">SMALL BUSINESS TOOL</p>
+      <h1>Appointment Booking</h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">WELCOME</p>
+        <h2>Book your next visit.</h2>
+        <p class="muted">Choose a service and a time that works for you.</p>
+      </div>
+      <div class="open-label"><span class="status-dot"></span> Booking is open</div>
+    </section>
+
+    <div class="dashboard-grid">
+      <section class="panel booking-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">NEW RESERVATION</p>
+            <h3>Book an appointment</h3>
+          </div>
+          <span class="step-number">01</span>
+        </div>
+
+        <form id="bookingForm">
+          <div class="field">
+            <label for="customerName">Full name</label>
+            <input type="text" id="customerName" name="customerName" placeholder="e.g. Alex Santos" maxlength="60" required>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" placeholder="e.g. 09123456789" maxlength="20" required>
+          </div>
+
+          <div class="field">
+            <label for="service">Select a service</label>
+            <select id="service" name="service" required>
+              <option value="">Choose a service</option>
+              <option value="Haircut">Haircut — ₱150</option>
+              <option value="Hair Coloring">Hair Coloring — ₱500</option>
+              <option value="Hair Treatment">Hair Treatment — ₱350</option>
+              <option value="Manicure">Manicure — ₱200</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="date">Appointment date</label>
+              <input type="date" id="date" name="date" required>
+            </div>
+            <div class="field">
+              <label for="time">Available time</label>
+              <select id="time" name="time" required>
+                <option value="">Choose a time</option>
+                <option>09:00 AM</option>
+                <option>10:00 AM</option>
+                <option>11:00 AM</option>
+                <option>01:00 PM</option>
+                <option>02:00 PM</option>
+                <option>03:00 PM</option>
+                <option>04:00 PM</option>
+                <option>05:00 PM</option>
+              </select>
+            </div>
+          </div>
+
+          <button class="primary-button" type="submit">Confirm appointment <span aria-hidden="true">→</span></button>
+          <p class="form-note">Demo project: appointments are saved in this browser only.</p>
+          <p id="message" class="message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <aside class="side-column">
+        <section class="panel info-panel">
+          <p class="eyebrow">BEFORE YOU BOOK</p>
+          <h3>Plan your visit</h3>
+          <ul class="tips-list">
+            <li><span class="tip-icon">✓</span><span>Choose the service you need.</span></li>
+            <li><span class="tip-icon">✓</span><span>Select an available date and time.</span></li>
+            <li><span class="tip-icon">✓</span><span>Check your details before confirming.</span></li>
+          </ul>
+        </section>
+        <section class="summary-card">
+          <p class="eyebrow">YOUR BOOKINGS</p>
+          <div class="summary-number" id="bookingCount">0</div>
+          <p>Appointments currently saved in this browser</p>
+        </section>
+      </aside>
+    </div>
+
+    <section class="panel appointments-panel">
+      <div class="section-heading appointments-heading">
+        <div>
+          <p class="eyebrow">SCHEDULE</p>
+          <h3>Appointment list</h3>
+        </div>
+        <span class="count-pill" id="listCount">0 bookings</span>
+      </div>
+      <div id="emptyState" class="empty-state">
+        <div class="empty-icon">▦</div>
+        <h4>No appointments yet</h4>
+        <p>Your confirmed bookings will appear here.</p>
+      </div>
+      <div class="table-wrap" id="tableWrap" hidden>
+        <table>
+          <thead>
+            <tr>
+              <th>Customer</th>
+              <th>Service</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="appointmentsTable"></tbody>
+        </table>
+      </div>
+    </section>
+    <footer>Appointment Booking System · Student Final Project</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
